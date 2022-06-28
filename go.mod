@@ -1,3 +1,3 @@
-module atomicgo.dev/template
+module atomicgo.dev/ghissue
 
 go 1.15
