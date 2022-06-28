@@ -15,7 +15,7 @@
 </a>
 
 <a href="https://codecov.io/gh/atomicgo/template">
-<!-- unittestcount:start --><img src="https://img.shields.io/badge/Unit_Tests-1-magenta?style=flat-square" alt="Unit test count"><!-- unittestcount:end -->
+<!-- unittestcount:start --><img src="https://img.shields.io/badge/Unit_Tests-0-magenta?style=flat-square" alt="Unit test count"><!-- unittestcount:end -->
 </a>
 
 <a href="https://github.com/atomicgo/template/issues">
@@ -81,13 +81,6 @@ Example description: https://golang.org/src/encoding/gob/doc.go
 
 
 ## Usage
-
-#### func  HelloWorld
-
-```go
-func HelloWorld() string
-```
-HelloWorld returns `Hello, World!`.
 
 ---
 
