@@ -74,8 +74,87 @@
 
 Package ghissue enables your users to submit issues to GitHub directly.
 
+![Demo Video](https://github.com/atomicgo/ghissue/blob/main/demo.mp4)
+
 
 ## Usage
+
+```go
+var ErrOpenBrowser = errors.New("failed to open browser")
+```
+ErrOpenBrowser is the error returned when opening the browser fails.
+
+#### type Issue
+
+```go
+type Issue struct {
+	Repository Repository
+	Title      string
+	Body       string
+}
+```
+
+Issue is a GitHub issue.
+
+#### func  NewIssue
+
+```go
+func NewIssue(repo Repository, title, body string) Issue
+```
+NewIssue creates a new issue.
+
+#### func (Issue) GetCreateURL
+
+```go
+func (issue Issue) GetCreateURL() string
+```
+GetCreateURL returns the URL to create an issue.
+
+#### func (Issue) Open
+
+```go
+func (issue Issue) Open() error
+```
+Open opens the "create issue" menu in the browser.
+
+#### type Repository
+
+```go
+type Repository struct {
+	Owner string
+	Name  string
+}
+```
+
+Repository is a GitHub repository.
+
+#### func  NewRepository
+
+```go
+func NewRepository(owner, name string) Repository
+```
+NewRepository creates a new Repository from an owner and repository name.
+
+#### func (Repository) CreateErrorReport
+
+```go
+func (repo Repository) CreateErrorReport(err error) error
+```
+CreateErrorReport creates a new issue on GitHub with a detailed error report
+including the stack trace.
+
+#### func (Repository) NewIssue
+
+```go
+func (repo Repository) NewIssue(title, body string) Issue
+```
+NewIssue creates a new issue with a title and body.
+
+#### func (Repository) String
+
+```go
+func (repo Repository) String() string
+```
 
 ---
 
