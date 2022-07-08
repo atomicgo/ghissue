@@ -20,6 +20,7 @@ func NewRepository(owner, name string) Repository {
 	}
 }
 
+// String returns the string representation of the repository.
 func (repo Repository) String() string {
 	return fmt.Sprintf("%s/%s", repo.Owner, repo.Name)
 }
@@ -30,6 +31,12 @@ func (repo Repository) NewIssue(title, body string) Issue {
 }
 
 // CreateErrorReport creates a new issue on GitHub with a detailed error report including the stack trace.
+//
+// Example:
+// 		repo := ghissue.NewRepository("atomicgo", "ghissue")
+//      // [...]
+//      err := errors.New("This is an error")
+// 		repo.CreateErrorReport(err)
 func (repo Repository) CreateErrorReport(err error) error {
 	if err == nil {
 		return nil

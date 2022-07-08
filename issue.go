@@ -28,7 +28,7 @@ func (issue Issue) GetCreateURL() string {
 	return getURL(issue.Repository.Owner, issue.Repository.Name, issue.Title, issue.Body)
 }
 
-// Open opens the "create issue" menu in the browser.
+// Open opens the "create issue" menu on GitHub in the browser.
 func (issue Issue) Open() error {
 	_, err := pterm.DefaultInteractiveConfirm.Show("Oh no! An error occurred. Would you like to create an issue on GitHub?")
 	if err != nil {
