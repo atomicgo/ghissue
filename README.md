@@ -74,7 +74,7 @@
 
 Package ghissue enables your users to submit issues to GitHub directly.
 
-![Demo Video](https://raw.githubusercontent.com/atomicgo/ghissue/main/demo.mp4)
+![Demo Video](https://raw.githubusercontent.com/atomicgo/ghissue/main/demo.gif)
 
 
 ## Usage
@@ -115,7 +115,7 @@ GetCreateURL returns the URL to create an issue.
 ```go
 func (issue Issue) Open() error
 ```
-Open opens the "create issue" menu in the browser.
+Open opens the "create issue" menu on GitHub in the browser.
 
 #### type Repository
 
@@ -143,6 +143,13 @@ func (repo Repository) CreateErrorReport(err error) error
 CreateErrorReport creates a new issue on GitHub with a detailed error report
 including the stack trace.
 
+Example:
+
+    		repo := ghissue.NewRepository("atomicgo", "ghissue")
+         // [...]
+         err := errors.New("This is an error")
+    		repo.CreateErrorReport(err)
+
 #### func (Repository) NewIssue
 
 ```go
@@ -155,6 +162,7 @@ NewIssue creates a new issue with a title and body.
 ```go
 func (repo Repository) String() string
 ```
+String returns the string representation of the repository.
 
 ---
 
