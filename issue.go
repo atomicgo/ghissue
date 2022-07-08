@@ -30,8 +30,11 @@ func (issue Issue) GetCreateURL() string {
 
 // Open opens the "create issue" menu in the browser.
 func (issue Issue) Open() error {
-	pterm.DefaultInteractiveConfirm.Show("Oh no! An error occurred. Would you like to create an issue on GitHub?")
-	err := browser.OpenURL(issue.GetCreateURL())
+	_, err := pterm.DefaultInteractiveConfirm.Show("Oh no! An error occurred. Would you like to create an issue on GitHub?")
+	if err != nil {
+		return fmt.Errorf("failed to show confirm prompt: %w", err)
+	}
+	err = browser.OpenURL(issue.GetCreateURL())
 	if err != nil {
 		return fmt.Errorf("%w: %s", ErrOpenBrowser, err)
 	}

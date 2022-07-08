@@ -17,6 +17,7 @@ linters-settings:
       - ptrToRefParam
       - paramTypeCombine
       - unnamedResult
+      - appendCombine
   misspell:
     locale: US
 linters:
