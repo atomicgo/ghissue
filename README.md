@@ -24,7 +24,7 @@
 </a>
   
 <a href="https://goreportcard.com/report/github.com/atomicgo/ghissue" target="_blank">
-<img src="https://goreportcard.com/badge/github.com/atomicgo/ghissue" alt="Go report">
+<img src="https://goreportcard.com/badge/github.com/atomicgo/ghissue?style=flat-square" alt="Go report">
 </a>   
 
 </p>
@@ -171,7 +171,7 @@ func NewRepository(owner, name string) Repository
 
 NewRepository creates a new Repository from an owner and repository name.
 
-### func \(Repository\) [CreateErrorReport](<https://github.com/atomicgo/ghissue/blob/main/repository.go#L40>)
+### func \(Repository\) [CreateErrorReport](<https://github.com/atomicgo/ghissue/blob/main/repository.go#L41>)
 
 ```go
 func (repo Repository) CreateErrorReport(err error) error
@@ -179,7 +179,14 @@ func (repo Repository) CreateErrorReport(err error) error
 
 CreateErrorReport creates a new issue on GitHub with a detailed error report including the stack trace.
 
-Example: repo := ghissue.NewRepository\("atomicgo", "ghissue"\) // \[...\] err := errors.New\("This is an error"\) repo.CreateErrorReport\(err\)
+Example:
+
+```
+repo := ghissue.NewRepository("atomicgo", "ghissue")
+     // [...]
+     err := errors.New("This is an error")
+		repo.CreateErrorReport(err)
+```
 
 ### func \(Repository\) [NewIssue](<https://github.com/atomicgo/ghissue/blob/main/repository.go#L29>)
 
