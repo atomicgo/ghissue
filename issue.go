@@ -34,9 +34,10 @@ func (issue Issue) Open() error {
 	if err != nil {
 		return fmt.Errorf("failed to show confirm prompt: %w", err)
 	}
+
 	err = browser.OpenURL(issue.GetCreateURL())
 	if err != nil {
-		return fmt.Errorf("%w: %s", ErrOpenBrowser, err)
+		return fmt.Errorf("%w: %w", ErrOpenBrowser, err)
 	}
 
 	return nil
