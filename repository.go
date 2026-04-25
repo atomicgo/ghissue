@@ -45,7 +45,7 @@ func (repo Repository) CreateErrorReport(err error) error {
 
 	title := fmt.Sprintf("[Error Report] `%s`", err.Error())
 
-	var report []string
+	report := make([]string, 0, 19)
 
 	report = append(report, "# Automatic Error Report")
 	report = append(report, "")
